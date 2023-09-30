@@ -1,15 +1,15 @@
 import { Layout } from "../../components/Layout";
-import { LoginForm } from "../../components/loginForm";
+import { UsuarioForm } from "../../components/usuarioForm";
 
 
-function NewLogin() {
+function NewUsuario() {
   return ( 
     <Layout>
       <div className="grid place-items-center h-5/6">
-        <LoginForm />
+        <UsuarioForm />
       </div>
     </Layout>
     );
 }
 
-export default NewLogin
+export default NewUsuario
