@@ -37,7 +37,7 @@ const deleteRecibo = async (req, res) => {
 
 const updateRecibo = async (req, res) => {
     const {id} = req.query
-    const {KEY_cuenta_pago,monto_pagado, imagen_pago, fecha_pago, observaciones, validacion,} = req.body
+    const {KEY_cuenta_pago,monto_pagado, imagen_pago, fecha_pago, observaciones, validacion} = req.body
     try {
         await pool.query('UPDATE recibo SET KEY_cuenta_pago = ? , monto_pagado = ?, imagen_pago = ? , fecha_pago = ? , observaciones = ?, validacion = ? WHERE PK_recibo = ?' , [KEY_cuenta_pago,monto_pagado, imagen_pago, fecha_pago, observaciones, validacion, id]);
         return res.status(204).json()
