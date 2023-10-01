@@ -35,7 +35,7 @@ const deleteTabla_info_partidos = async (req, res) => {
     }
 }
 
-const updateAlmacen = async (req, res) => {
+const updateTabla_info_partidos = async (req, res) => {
     const {id} = req.query
     const {FK_categoria ,fecha_partido , incidentes ,goles_favor ,goles_contra , num_tarjetas_rojas ,num_tarjetas_amarillas ,resultado , datos_extra , nombre_encargado } = req.body
     try {
