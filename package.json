@@ -16,7 +16,7 @@
     "gitignore": "^0.7.0",
     "mariadb": "^3.1.1",
     "mysql2": "^3.2.4",
-    "next": "^13.3.1",
+    "next": "13.2.4",
     "next-connect": "^0.13.0",
     "nodejs": "^0.0.0",
     "react": "^18.2.0",
