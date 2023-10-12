@@ -1,4 +1,5 @@
 import { pool } from "../../../../config/db"
+import * as bcrypt from "bcryptjs"
 
 export default async function handler(req, res){
     
@@ -8,7 +9,7 @@ export default async function handler(req, res){
         case 'DELETE':
             return await deleteUsuario(req, res)
         case 'PUT':
-            return await updateUsuario(req, res)
+            return await updateUser_pass(req, res)
         default:
             break;
     }
@@ -35,9 +36,27 @@ const deleteUsuario = async (req, res) => {
     }
 }
 
-const updateUsuario = async (req, res) => {
+const updateUser_pass = async (req,res) =>{
+    try {
+        
+        var {nombre_usuario, apellidos_usuario, fecha_naci_usuario, celular_usuario, FK_contacto_emergencia, FK_tipo_cuenta, usuario , pw, correo, estado,} = req.body
+        
+        const saltRounds = 1;
+        var hashedPassword;
+        bcrypt.hash(pw, saltRounds)
+                .then(hash => {
+                    pw = hash
+                    updateUsuario(nombre_usuario, apellidos_usuario, fecha_naci_usuario, celular_usuario, FK_contacto_emergencia, FK_tipo_cuenta, usuario , pw, correo, estado, req,res)
+                    //console.log('Hash ', pw)
+                })
+                .catch(err => console.error(err.message))
+    } catch (error) {
+        return res.status(500).json({message: error.message})
+    }
+}
+
+const updateUsuario = async (nombre_usuario, apellidos_usuario, fecha_naci_usuario, celular_usuario, FK_contacto_emergencia, FK_tipo_cuenta, usuario , pw, correo, estado, req,res) => {
     const {id} = req.query
-    const {nombre_usuario, apellidos_usuario, fecha_naci_usuario, celular_usuario, FK_contacto_emergencia, FK_tipo_cuenta, usuario , pw, correo, estado} = req.body
     try {
         await pool.query('UPDATE usuario SET nombre_usuario = ? , apellidos_usuario = ? , fecha_naci_usuario = ? , celular_usuario = ? ,  FK_contacto_emergencia = ? , FK_tipo_cuenta = ? , usuario = ? , pw = ? , correo = ? , estado = ?  WHERE PK_usuario = ? ' , [nombre_usuario, apellidos_usuario, fecha_naci_usuario, celular_usuario, FK_contacto_emergencia, FK_tipo_cuenta, usuario , pw, correo, estado, id]);
         return res.status(204).json()
