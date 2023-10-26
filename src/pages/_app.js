@@ -1,5 +1,5 @@
 //import '../styles/globals.css'
-//import 'react-toastify/dist/ReactToastify.css';
+import 'react-toastify/dist/ReactToastify.css';
 import '../styles/globals.css'
 import { SWRConfig } from "swr";
 import fetch from "../../lib/fetchJson";

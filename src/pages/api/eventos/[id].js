@@ -18,7 +18,7 @@ export default async function handler(req, res){
 const getEventos = async (req, res) => {
     try {
         const {id} = req.query
-        const [result] = await pool.query("SELECT * FROM eventos_importantes WHERE PK_eventos = ?", [id])
+        const [result] = await pool.query("SELECT PK_eventos, FK_categoria, descripcion_evento, DATE_FORMAT(fecha_evento,'%y-%m-%d') AS fecha_evento, ubicacion_evento FROM eventos_importantes WHERE PK_eventos = ?", [id])
         return res.status(200).json(result[0])
     } catch (error) {
         return res.status(500).json({message: error.message})

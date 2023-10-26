@@ -31,7 +31,57 @@ const databaseServiceFactory = () => {
         await knex('usuario').insert({usuario: `${username}`,pw: `${hashedPassword}`});
     };
 
-    return {getUser, createUser};
+    const getAlumno = async (PK_usuario) => {
+        const user = await pool.query('SELECT * FROM alumno WHERE FK_usuario = ?', PK_usuario)
+        //const user = await knex(TABLE).select().where('usuario', username);
+        if (user.length === 0) {
+            throw new Error("User not found");
+        } 
+        //console.log(user[0])
+        return user[0][0];
+    };
+
+    const getAdministrador = async (PK_usuario) => {
+        const user = await pool.query('SELECT * FROM administracion WHERE FK_usuario = ?', PK_usuario)
+        //const user = await knex(TABLE).select().where('usuario', username);
+        if (user.length === 0) {
+            throw new Error("User not found");
+        } 
+        //console.log(user[0])
+        return user[0][0];
+    };
+
+    const getProfesor = async (PK_usuario) => {
+        const user = await pool.query('SELECT * FROM profesor WHERE FK_usuario = ?', PK_usuario)
+        //const user = await knex(TABLE).select().where('usuario', username);
+        if (user.length === 0) {
+            throw new Error("User not found");
+        } 
+        //console.log(user[0])
+        return user[0][0];
+    };
+
+    const getDirector = async (PK_usuario) => {
+        const user = await pool.query('SELECT * FROM director_deportivo WHERE FK_usuario = ?', PK_usuario)
+        //const user = await knex(TABLE).select().where('usuario', username);
+        if (user.length === 0) {
+            throw new Error("User not found");
+        } 
+        //console.log(user[0])
+        return user[0][0];
+    };
+
+    const eventos = async (FK_categoria) => {
+        const evento = await pool.query('SELECT * FROM eventos_importantes WHERE FK_categoria = ?', FK_categoria)
+        //const user = await knex(TABLE).select().where('usuario', username);
+        if (evento.length === 0) {
+            throw new Error("No eventos existentes");
+        } 
+        //console.log(user[0])
+        return evento[0][0];
+    };
+
+    return {getUser, createUser, getAlumno, getAdministrador, getProfesor, getDirector, eventos};
 };
 
 module.exports = {
