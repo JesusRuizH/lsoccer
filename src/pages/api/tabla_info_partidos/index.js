@@ -16,7 +16,7 @@ export default async function handler(req, res){
 //funciones
 const getTabla_info_partidos = async (req, res) => {
     try {
-        const [result] = await pool.query('SELECT * FROM tabla_info_partidos')
+        const [result] = await pool.query("SELECT PK_tabla_info_partidos, FK_categoria, DATE_FORMAT(fecha_partido,'%y-%m-%d') AS fecha_partido, incidentes, goles_favor, goles_contra, num_tarjetas_rojas, num_tarjetas_amarillas, resultado, datos_extra, nombre_encargado FROM tabla_info_partidos")
         //console.log(result);
         return res.status(200).json(result)
     } catch (error) {

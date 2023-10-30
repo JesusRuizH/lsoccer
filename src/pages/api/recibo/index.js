@@ -16,7 +16,7 @@ export default async function handler(req, res){
 //funciones
 const getRecibo = async (req, res) => {
     try {
-        const [result] = await pool.query('SELECT * FROM recibo')
+        const [result] = await pool.query("SELECT PK_recibo, KEY_cuenta_pago, monto_pagado, imagen_pago, DATE_FORMAT(fecha_pago,'%y-%m-%d') AS fecha_pago, observaciones, validacion FROM recibo")
         //console.log(result);
         return res.status(200).json(result)
     } catch (error) {

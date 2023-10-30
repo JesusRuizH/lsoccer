@@ -1,5 +1,5 @@
 import axios from "axios";
-//import { Layout } from "../../components/Layout";
+import { Layout } from "../../components/Layout";
 import Link from 'next/link'
 import { useRouter } from "next/router";
 import { UsuarioCard } from "../../components/usuarioCard";
@@ -19,6 +19,7 @@ function FirstPage({usuario}) {
   return (
     //toma productForm dede components para darle formato a la pagina inicial
     <div>
+      <Layout>
       <div className="grid gap-4 grid-cols-1 md:grid-cols-3">
         {renderUsuario()}
 
@@ -26,7 +27,7 @@ function FirstPage({usuario}) {
         onClick={() => router.push("/newUsuario")}
         >Nuevo usuario</button>
       </div>
-
+      </Layout>
     </div>
   );
 }

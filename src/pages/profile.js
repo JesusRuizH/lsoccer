@@ -1,4 +1,4 @@
-import {NavegadorAlumno} from "../../components/navegadorAlu";
+import {Navegador} from "../../components/navegador";
 import withSession from "../../lib/session";
 import axios from "axios";
 
@@ -6,7 +6,7 @@ export default function Profile({user, contacto}) {
     return (
       <>
         <div className=" m-auto w-full">
-          <NavegadorAlumno user={user}/>
+          <Navegador user={user}/>
 
           <div className="p-0 space-y-10">
             <ProfileInfo user={user} contact={contacto}/>
@@ -114,13 +114,13 @@ function ProfileInfo({user, contact}) {
   
     return (
         <div className=" mt-1">
-              <h3 class="mt-8 text-gray-500">Informacion de contacto</h3>
-              <h3 class="text-gray-600 font-light lg:px-16 mt-2">Correo: {usuario.correo}</h3>
-              <h3 class="text-gray-600 font-light lg:px-16 mt-2">Celular: {usuario.celular_usuario}</h3>
-              <h3 class="mt-8 text-gray-500">Contacto de emergencia</h3>
-              <h3 class="text-gray-600 font-light lg:px-16 mt-2">Nombre del contacto: {contacto_eme.nombre_contacto} {contacto_eme.apellido_contacto}</h3>
-              <h3 class="text-gray-600 font-light lg:px-16 mt-2">Telefono: {contacto_eme.telefono_contacto}</h3>
-              <h3 class="text-gray-600 font-light lg:px-16 mt-2">Celular: {contacto_eme.cel_contacto}</h3>
+              <h3 className="mt-8 text-gray-500">Informacion de contacto</h3>
+              <h3 className="text-gray-600 font-light lg:px-16 mt-2">Correo: {usuario.correo}</h3>
+              <h3 className="text-gray-600 font-light lg:px-16 mt-2">Celular: {usuario.celular_usuario}</h3>
+              <h3 className="mt-8 text-gray-500">Contacto de emergencia</h3>
+              <h3 className="text-gray-600 font-light lg:px-16 mt-2">Nombre del contacto: {contacto_eme.nombre_contacto} {contacto_eme.apellido_contacto}</h3>
+              <h3 className="text-gray-600 font-light lg:px-16 mt-2">Telefono: {contacto_eme.telefono_contacto}</h3>
+              <h3 className="text-gray-600 font-light lg:px-16 mt-2">Celular: {contacto_eme.cel_contacto}</h3>
         </div>
     );
   }

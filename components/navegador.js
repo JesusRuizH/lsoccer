@@ -42,7 +42,7 @@ function classNames(...classes) {
 
 import { ArrowPathIcon, CloudArrowUpIcon, FingerPrintIcon, LockClosedIcon } from '@heroicons/react/24/outline'
 
-export function NavegadorAlumno({user}) {
+export function Navegador({user}) {
   let nav = [];
   const navegador = () =>{
     if(user.FK_tipo_cuenta === 1){
@@ -64,22 +64,93 @@ export function NavegadorAlumno({user}) {
     }else if(user.FK_tipo_cuenta === 3){
       const navigation = [
         { name: 'Pagina Principal', href: 'http://localhost:3000/', current: false },
-        { name: 'Team', href: '#', current: false },
-        { name: 'Projects', href: '#', current: false },
-        { name: 'Calendar', href: '#', current: false },
+        { name: 'Crear Nota', href: '#', current: false },
       ]
       nav = navigation;
     }else if(user.FK_tipo_cuenta === 4){
       const navigation = [
         { name: 'Pagina Principal', href: 'http://localhost:3000/', current: false },
-        { name: 'Team', href: '#', current: false },
-        { name: 'Projects', href: '#', current: false },
-        { name: 'Calendar', href: '#', current: false },
+        { name: 'Eventos', href: '#', current: false },
+        { name: 'Tablas de partidos', href: '#', current: false },
+        { name: 'Entrenamientos', href: '#', current: false },
+        { name: 'Categorias Asignadas', href: '#', current: false },
       ]
       nav = navigation;
     }
   }
   navegador();
+
+  const crearUsuarios = () =>{
+    if(user.FK_tipo_cuenta === 3){
+      return(
+        <>
+         <Menu as="div" className="relative ml-3">
+                  <div>
+                    <Menu.Button className="relative flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
+                      <span className="absolute -inset-1.5" />
+                      <span className="sr-only">Open user menu</span>
+                      <div>
+                          <h3>Crear</h3>
+                      </div>
+                    </Menu.Button>
+                  </div>
+                  <Transition
+                    as={Fragment}
+                    enter="transition ease-out duration-100"
+                    enterFrom="transform opacity-0 scale-95"
+                    enterTo="transform opacity-100 scale-100"
+                    leave="transition ease-in duration-75"
+                    leaveFrom="transform opacity-100 scale-100"
+                    leaveTo="transform opacity-0 scale-95"
+                  >
+                    <Menu.Items className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+                      <Menu.Item>
+                        {({ active }) => (
+                          <a
+                            href="http://localhost:3000/crearAlumno"
+                            className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
+                          >
+                            Alumno
+                          </a>
+                        )}
+                      </Menu.Item>
+                      <Menu.Item>
+                        {({ active }) => (
+                          <a
+                            href="http://localhost:3000/crearDirector"
+                            className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
+                          >
+                            Director deportivo
+                          </a>
+                        )}
+                      </Menu.Item>
+                      <Menu.Item>
+                        {({ active }) => (
+                          <a
+                            href="http://localhost:3000/crearAdmin"
+                            className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
+                          >
+                            Administrador
+                          </a>
+                        )}
+                      </Menu.Item>
+                      <Menu.Item>
+                        {({ active }) => (
+                          <a
+                            href="http://localhost:3000/crearProfe"
+                            className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
+                          >
+                            Entrenador
+                          </a>
+                        )}
+                      </Menu.Item>
+                    </Menu.Items>
+                  </Transition>
+                </Menu>
+        </>
+      )
+    }
+  }
 
   return (
     <Disclosure as="nav" className="bg-gray-800">
@@ -189,6 +260,9 @@ export function NavegadorAlumno({user}) {
                     </Menu.Items>
                   </Transition>
                 </Menu>
+
+               {crearUsuarios()}
+
               </div>
             </div>
           </div>

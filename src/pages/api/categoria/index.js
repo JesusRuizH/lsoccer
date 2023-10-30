@@ -16,7 +16,7 @@ export default async function handler(req, res){
 //funciones
 const getCategoria = async (req, res) => {
     try {
-        const [result] = await pool.query('SELECT * FROM categoria')
+        const [result] = await pool.query("SELECT PK_categoria, DATE_FORMAT(fecha_categoria_ini,'%y-%m-%d') AS fecha_categoria_ini, DATE_FORMAT(fecha_categoria_fin,'%y-%m-%d') AS fecha_categoria_fin, turno FROM categoria")
         //console.log(result);
         return res.status(200).json(result)
     } catch (error) {

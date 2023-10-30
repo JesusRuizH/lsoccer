@@ -19,7 +19,7 @@ export default async function handler(req, res){
 const getUsuario = async (req, res) => {
     try {
         const {id} = req.query
-        const [result] = await pool.query("SELECT * FROM usuario WHERE PK_usuario = ?", [id])
+        const [result] = await pool.query("SELECT PK_usuario, nombre_usuario, apellidos_usuario, DATE_FORMAT(fecha_naci_usuario,'%y-%m-%d') AS fecha_naci_usuario, celular_usuario, FK_contacto_emergencia, FK_tipo_cuenta, usuario, LEFT(pw , 10) AS pw, correo, estado FROM usuario WHERE PK_usuario = ?", [id])
         return res.status(200).json(result[0])
     } catch (error) {
         return res.status(500).json({message: error.message})
