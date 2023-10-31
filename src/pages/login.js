@@ -34,11 +34,11 @@ export default function Login() {
 
     return <div>
         {!user ? (<h1>Loading....</h1>) : 
-                <>{!user.isLoggedIn && <form className="border-0 bg-slate-900" onSubmit={handleSubmit}>
+                <>{!user.isLoggedIn && <form className="border-0 bg-gradient-to-r from-indigo-700 from-10% via-sky-800 via-30% to-gray-800 to-80%" onSubmit={handleSubmit}>
 
                         <div className="relative flex flex-col justify-center min-h-screen overflow-hidden">
                             <div className="w-full p-6 m-auto bg-white rounded-md shadow-md lg:max-w-xl">
-                                <h1 className="text-3xl font-semibold text-center text-blue-700">
+                                <h1 className="text-3xl font-semibold text-center text-gray-800">
                                     Live Soccer
                                 </h1>
                                 <label 
