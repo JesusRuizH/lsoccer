@@ -37,9 +37,9 @@ const deleteEquipos = async (req, res) => {
 
 const updateEquipos = async (req, res) => {
     const {id} = req.query
-    const {nombre_equipo ,posicion_tabla} = req.body
+    const {nombre_equipo ,posicion_tabla, FK_liga} = req.body
     try {
-        await pool.query('UPDATE equipos SET nombre_equipo = ? , posicion_tabla = ? WHERE PK_equipo = ?' , [nombre_equipo ,posicion_tabla, id]);
+        await pool.query('UPDATE equipos SET nombre_equipo = ? , posicion_tabla = ?, FK_liga = ? WHERE PK_equipo = ?' , [nombre_equipo ,posicion_tabla, FK_liga, id]);
         return res.status(204).json()
     } catch (error) {
         return res.status(500).json({message: error.message})

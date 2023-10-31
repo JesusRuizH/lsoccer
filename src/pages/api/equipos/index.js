@@ -26,10 +26,10 @@ const getEquipos = async (req, res) => {
 
 const saveEquipos = async (req, res)=>{
     try {
-        const {nombre_equipo ,posicion_tabla} = req.body
+        const {nombre_equipo ,posicion_tabla, FK_liga} = req.body
 
-        const [result] = await pool.query('INSERT INTO equipos SET ?', {nombre_equipo ,posicion_tabla})
-        return res.status(200).json({nombre_equipo ,posicion_tabla, id: result.insertId})
+        const [result] = await pool.query('INSERT INTO equipos SET ?', {nombre_equipo ,posicion_tabla, FK_liga})
+        return res.status(200).json({nombre_equipo ,posicion_tabla, FK_liga, id: result.insertId})
     } catch (error) {
         return res.status(500).json({message: error.message})
     }

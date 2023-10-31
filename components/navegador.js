@@ -56,9 +56,9 @@ export function Navegador({user}) {
     }else if(user.FK_tipo_cuenta === 2){
       const navigation = [
         { name: 'Pagina Principal', href: 'http://localhost:3000/', current: false },
-        { name: 'Ligas', href: '#', current: false },
-        { name: 'Equipos de Ligas', href: '#', current: false },
-        { name: 'Jugadores de Ligas', href: '#', current: false },
+        { name: 'Ligas', href: 'http://localhost:3000/crearLigas', current: false },
+        { name: 'Equipos de Ligas', href: 'http://localhost:3000/crearEquiLig', current: false },
+        { name: 'Jugadores de Ligas', href: 'http://localhost:3000/crearJugaLigas', current: false },
       ]
       nav = navigation;
     }else if(user.FK_tipo_cuenta === 3){
@@ -210,10 +210,20 @@ export function Navegador({user}) {
                       <Menu.Item>
                         {({ active }) => (
                           <a
-                            href="#"
+                            href="http://localhost:3000/crearCategorias"
                             className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
                           >
                             Categorias
+                          </a>
+                        )}
+                      </Menu.Item>
+                      <Menu.Item>
+                        {({ active }) => (
+                          <a
+                            href="http://localhost:3000/crearTablasCate"
+                            className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
+                          >
+                            Tablas de categorias
                           </a>
                         )}
                       </Menu.Item>

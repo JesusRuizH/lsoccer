@@ -8,7 +8,7 @@ export default function Home({user, alumno, cate, cate_asig}) {
         <Navegador user={user}/>
         <p className="ml-8 mt-8 mb-2 text-gray-500">Usuarios de Profesores</p>
         <div>
-            <dl className="grid max-w-xl grid-cols-2 gap-x-8 gap-y-10 lg:max-w-none lg:grid-cols-2 lg:gap-y-16 pt-3">
+            <dl className="grid max-w-xl grid-cols-2 gap-x-8 gap-y-10 lg:max-w-none lg:grid-cols-3 lg:gap-y-16 pt-3">
                 {
                 alumno.map((feature) => (
                     
@@ -37,7 +37,7 @@ export default function Home({user, alumno, cate, cate_asig}) {
         </div>
         <p className="ml-8 mt-8 mb-2 text-gray-500">Categorias Existentes</p>
         <div>
-            <dl className="grid max-w-xl grid-cols-2 gap-x-8 gap-y-10 lg:max-w-none lg:grid-cols-2 lg:gap-y-16 pt-3">
+            <dl className="grid max-w-xl grid-cols-2 gap-x-8 gap-y-10 lg:max-w-none lg:grid-cols-3 lg:gap-y-16 pt-3">
                 {
                 cate.map((feature) => (
                     
@@ -65,7 +65,7 @@ export default function Home({user, alumno, cate, cate_asig}) {
         </div>
         <p className="ml-8 mt-8 mb-2 text-gray-500">Grupo de categorias a Asignar Existentes</p>
         <div>
-            <dl className="grid max-w-xl grid-cols-2 gap-x-8 gap-y-10 lg:max-w-none lg:grid-cols-2 lg:gap-y-16 pt-3">
+            <dl className="grid max-w-xl grid-cols-2 gap-x-8 gap-y-10 lg:max-w-none lg:grid-cols-3 lg:gap-y-16 pt-3">
                 {
                 cate_asig.map((feature) => (
                     

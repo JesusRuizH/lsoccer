@@ -83,6 +83,22 @@ export function EquiposForm() {
           />
           </div>
 
+          <div className="mb-4">
+          <label
+            htmlFor="FK_liga"
+            className="block text-gray-700 text-sm font-bold mb-2"
+          >
+            FK_liga:
+          </label>
+          <input
+            type="text"
+            name="FK_liga"
+            onChange={handleChange}
+            className="shadow appearance-none border rounded  w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            value={equi.FK_liga}
+          />
+          </div>
+
           <button className="bg-blue-500 hover:bg-blue-700 py-2 px-4 rounded focus:outline-none focus:shadow-outline font-bold text-white">
             {router.query.id ? "Editar Equipo" : "Crear Equipo"}
           </button>
