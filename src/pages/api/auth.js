@@ -57,11 +57,12 @@ export default withSession(async (req, res) => {
             if(userCredentials.FK_tipo_cuenta === 1){
                 const userAlumno = await dbService.getAlumno(PK_usuario);
                 const FK_categoria = userAlumno.FK_categoria;
+                const KEY_cuenta_pago = userAlumno.KEY_cuenta_pago;
                 //console.log(userAlumno);
                 await saveSession({nombre_usuario, apellidos_usuario, PK_usuario, FK_tipo_cuenta, fecha_naci_usuario, celular_usuario, 
-                                   usuario, correo, estado, FK_contacto_emergencia, FK_categoria}, req);
+                                   usuario, correo, estado, FK_contacto_emergencia, FK_categoria, KEY_cuenta_pago}, req);
                 res.status(200).json({nombre_usuario, apellidos_usuario, PK_usuario, FK_tipo_cuenta, fecha_naci_usuario, celular_usuario, 
-                                    usuario, correo, estado, FK_contacto_emergencia, FK_categoria});
+                                    usuario, correo, estado, FK_contacto_emergencia, FK_categoria, KEY_cuenta_pago});
                 return;
               }else if(userCredentials.FK_tipo_cuenta === 2){
                 const userDirector = await dbService.getDirector(PK_usuario);

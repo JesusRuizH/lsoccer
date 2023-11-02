@@ -14,7 +14,7 @@ export default async function handler(req, res){
 //funciones
 const getEventos = async (req, res) => {
     try {
-        const [result] = await pool.query("SELECT nombre_usuario, apellidos_usuario, cate_uno, cate_dos, cate_tres FROM usuario, profesor, cate_asignadas WHERE (PK_usuario = FK_usuario) AND (FK_cate_asignadas = PK_cate_asignadas)")
+        const [result] = await pool.query("SELECT PK_usuario, nombre_usuario, apellidos_usuario, cate_uno, cate_dos, cate_tres FROM usuario, profesor, cate_asignadas WHERE (PK_usuario = FK_usuario) AND (FK_cate_asignadas = PK_cate_asignadas)")
         //console.log(result);
         return res.status(200).json(result)
     } catch (error) {

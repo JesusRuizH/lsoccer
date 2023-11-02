@@ -2,32 +2,6 @@ import { Fragment } from 'react'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
 
-const features = [
-    {
-      name: 'Push to deploy',
-      description:
-        'Morbi viverra dui mi arcu sed. Tellus semper adipiscing suspendisse semper morbi. Odio urna massa nunc massa.',
-      icon: CloudArrowUpIcon,
-    },
-    {
-      name: 'SSL certificates',
-      description:
-        'Sit quis amet rutrum tellus ullamcorper ultricies libero dolor eget. Sem sodales gravida quam turpis enim lacus amet.',
-      icon: LockClosedIcon,
-    },
-    {
-      name: 'Simple queues',
-      description:
-        'Quisque est vel vulputate cursus. Risus proin diam nunc commodo. Lobortis auctor congue commodo diam neque.',
-      icon: ArrowPathIcon,
-    },
-    {
-      name: 'Advanced security',
-      description:
-        'Arcu egestas dolor vel iaculis in ipsum mauris. Tincidunt mattis aliquet hac quis. Id hac maecenas ac donec pharetra eget.',
-      icon: FingerPrintIcon,
-    },
-  ]
 /*
 const navigation = [
   { name: 'Pagina Principal', href: 'http://localhost:3000/', current: false },
@@ -48,14 +22,16 @@ export function Navegador({user}) {
     if(user.FK_tipo_cuenta === 1){
       const navigation = [
         { name: 'Pagina Principal', href: 'http://localhost:3000/', current: false },
-        { name: 'Pagos', href: '#', current: false },
-        { name: 'Tablas de partidos', href: '#', current: false },
+        { name: 'Pagos', href: 'http://localhost:3000/pagosAlu', current: false },
+        { name: 'Tablas de partidos', href: 'http://localhost:3000/tablasPartInfo', current: false },
+        { name: 'Categoria y Horario', href: 'http://localhost:3000/aluCateInfo', current: false },
       ]
       nav = navigation;
 
     }else if(user.FK_tipo_cuenta === 2){
       const navigation = [
         { name: 'Pagina Principal', href: 'http://localhost:3000/', current: false },
+        { name: 'Entrenamientos', href: 'http://localhost:3000/crearEntrena', current: false },
         { name: 'Ligas', href: 'http://localhost:3000/crearLigas', current: false },
         { name: 'Equipos de Ligas', href: 'http://localhost:3000/crearEquiLig', current: false },
         { name: 'Jugadores de Ligas', href: 'http://localhost:3000/crearJugaLigas', current: false },
@@ -70,10 +46,10 @@ export function Navegador({user}) {
     }else if(user.FK_tipo_cuenta === 4){
       const navigation = [
         { name: 'Pagina Principal', href: 'http://localhost:3000/', current: false },
-        { name: 'Eventos', href: '#', current: false },
-        { name: 'Tablas de partidos', href: '#', current: false },
-        { name: 'Entrenamientos', href: '#', current: false },
-        { name: 'Categorias Asignadas', href: '#', current: false },
+        { name: 'Eventos', href: 'http://localhost:3000/crearEve', current: false },
+        { name: 'Tablas de partidos', href: 'http://localhost:3000/crearTablasPar', current: false },
+        { name: 'Entrenamientos', href: 'http://localhost:3000/entrenaProfes', current: false },
+        { name: 'Categorias Asignadas', href: 'http://localhost:3000/categoriasProfes', current: false },
       ]
       nav = navigation;
     }
