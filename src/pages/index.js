@@ -107,6 +107,10 @@ function MainDashboard({event, user, cates, eventos_profes}) {
   return (
     <div className=" rounded-sm bg-white py-24 sm:py-10 ">
       <div className="mx-auto max-w-7xl px-6 lg:px-8 ">
+      <div className='flex justify-center'>
+        <iframe src="https://calendar.google.com/calendar/embed?src=77781e52ee7d1f2bba61154a3104011212dd427dc57d91f1db7b012acf0c9a5d%40group.calendar.google.com&ctz=America%2FMexico_City" className='h-80 w-2/4'></iframe>
+      </div>
+      
         <div className="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-4xl ">
         <dl className="grid max-w-xl grid-cols-1 gap-x-8 gap-y-10 lg:max-w-none lg:grid-cols-1 lg:gap-y-16 ">
             {
