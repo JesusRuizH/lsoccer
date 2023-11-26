@@ -313,7 +313,7 @@ export function Navegador({user}) {
                       <Menu.Item>
                         {({ active }) => (
                           <a
-                            href="/api/logout"
+                            href="http://localhost:3000/api/logout"
                             className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
                           >
                             Logout
