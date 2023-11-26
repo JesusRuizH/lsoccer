@@ -1,8 +1,8 @@
 import Link from "next/link"
 
-export function ReciboCard({rec}) {
+export function ReciboAluCard({rec}) {
   return (
-    <Link legacyBehavior href={`/recibo/${rec.PK_recibo}`} key={rec.PK_recibo}>
+    <Link legacyBehavior href={`/reciboAlu/${rec.PK_recibo}`} key={rec.PK_recibo}>
     <a>
         <div className="border border-gray-200 shadow-md p-6">
         

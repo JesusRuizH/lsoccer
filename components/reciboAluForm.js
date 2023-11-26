@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import {useRouter} from 'next/router';
 import { toast } from 'react-toastify';
 
-export function ReciboForm() {
+export function ReciboAluForm() {
 
     const [rec, setRecibo] = useState({
         KEY_cuenta_pago: 0 ,monto_pagado: 0, imagen_pago: "", fecha_pago: "", observaciones: "", validacion: 0,
@@ -21,7 +21,7 @@ export function ReciboForm() {
                 await axios.post('/api/recibo', rec)
                 toast.success('recibo Creado Correctamente')
             }
-            router.push('/recibo')
+            router.push('/reciboAlu')
         } catch (error) {
             
             toast.error(error.response.data.message)
@@ -44,8 +44,28 @@ export function ReciboForm() {
     }, [])
     
 
+    const [file, setFile] = useState()
+
+    const fileSelectedHandler = (e) =>{
+      //console.log(e.target.files[0])
+      setFile(
+        e.target.files[0]
+      )
+    }
+
+    const fileUploadHandler = async () =>{
+      const formData = new FormData()
+      //console.log(file)
+      formData.append("file", file)
+      formData.append("data", router.query.id)
+
+      await axios.post('http://localhost:3000/api/image', formData).then(res => console.log(res)).catch(err => console.log(err))
+    }
+    
+
     return (
         <div className="w-full max-w-xs">
+
         <form
           onSubmit={handleSubmit}
           className="bg-white shadow-md rounded px-10  pt-6 pb-8 mb-2"
@@ -66,22 +86,22 @@ export function ReciboForm() {
             value={rec.KEY_cuenta_pago}
           />
           </div>
-
-          <div className="mb-4">
-          <label
-            htmlFor="monto_pagado"
-            className="block text-gray-700 text-sm font-bold mb-2"
-          >
-            monto_pagado:
-          </label>
-          <input
-            type="text"
-            name="monto_pagado"
-            onChange={handleChange}
-            className="shadow appearance-none border rounded  w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-            value={rec.monto_pagado}
-          />
-          </div>
+              <div className="mb-4">
+              <label
+                htmlFor="imagen_pago"
+                className="block text-gray-700 text-sm font-bold mb-2"
+              >
+                Get image prove:
+              </label>
+              <input
+                type="file"
+                name="imagen_pago"
+                onChange={fileSelectedHandler}
+                
+                className="shadow appearance-none border rounded  w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                
+              />
+              </div>
 
           <div className="mb-4">
           <label
@@ -99,39 +119,9 @@ export function ReciboForm() {
           />
           </div>
 
-          <div className="mb-4">
-          <label
-            htmlFor="observaciones"
-            className="block text-gray-700 text-sm font-bold mb-2"
+          <button
+           onClick={fileUploadHandler}
           >
-            observaciones:
-          </label>
-          <input
-            type="text"
-            name="observaciones"
-            onChange={handleChange}
-            className="shadow appearance-none border rounded  w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-            value={rec.observaciones}
-          />
-          </div>
-
-          <div className="mb-4">
-          <label
-            htmlFor="validacion"
-            className="block text-gray-700 text-sm font-bold mb-2"
-          >
-            validacion:
-          </label>
-          <input
-            type="text"
-            name="validacion"
-            onChange={handleChange}
-            className="shadow appearance-none border rounded  w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-            value={rec.validacion}
-          />
-          </div>
-
-          <button className="bg-blue-500 hover:bg-blue-700 py-2 px-4 rounded focus:outline-none focus:shadow-outline font-bold text-white">
             {router.query.id ? "Editar recibo" : "Crear recibo"}
           </button>
         </form>
