@@ -36,7 +36,7 @@ export default function Home({user, cates}) {
             </dl>
         </div>
         <p className="ml-8 mt-8 mb-2 text-gray-500">Crear Eventos</p>
-        <iframe class="w-full aspect-[5/3]" src="http://localhost:3000/tabla_info_partidos"></iframe>
+        <iframe className="w-full aspect-[5/3]" src="http://localhost:3000/tabla_info_partidos"></iframe>
         </>
     )
     

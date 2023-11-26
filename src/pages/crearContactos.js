@@ -6,7 +6,7 @@ export default function Home({user}) {
         <>
         <Navegador user={user}/>
         <p className="ml-8 mt-8 mb-2 text-gray-500">Crear Contacto</p>
-        <iframe class="w-full aspect-[5/2] " src="http://localhost:3000/contacto"></iframe>
+        <iframe className="w-full aspect-[5/2] " src="http://localhost:3000/contacto"></iframe>
         </>
     )
     

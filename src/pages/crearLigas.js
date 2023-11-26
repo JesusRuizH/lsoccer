@@ -6,7 +6,7 @@ export default function Home({user}) {
         <>
         <Navegador user={user}/>
         <p className="ml-8 mt-8 mb-2 text-gray-500">Crear Ligas</p>
-        <iframe class="w-full aspect-[5/2] " src="http://localhost:3000/liga"></iframe>
+        <iframe className="w-full aspect-[5/2] " src="http://localhost:3000/liga"></iframe>
         </>
     )
     

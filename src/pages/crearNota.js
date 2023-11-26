@@ -36,7 +36,7 @@ export default function Home({user, alumno}) {
             </dl>
         </div>
         <p className="ml-8 mt-8 mb-2 text-gray-500">Crear Nota</p>
-        <iframe class="w-full aspect-[4/3]" src="http://localhost:3000/recibo"></iframe>
+        <iframe className="w-full aspect-[4/3]" src="http://localhost:3000/recibo"></iframe>
         </>
     )
     

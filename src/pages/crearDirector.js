@@ -38,7 +38,7 @@ export default function Home({user, dires_dep}) {
         </div>
 
         <p className="ml-8 mt-8 mb-2 text-gray-500">Crear Director Deportivo</p>
-        <iframe class="w-full aspect-[5/2]" src="http://localhost:3000/director"></iframe>
+        <iframe className="w-full aspect-[5/2]" src="http://localhost:3000/director"></iframe>
         </>
     )
     

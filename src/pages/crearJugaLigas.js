@@ -35,7 +35,7 @@ export default function Home({user, equipos}) {
             </dl>
         </div>
         <p className="ml-8 mt-8 mb-2 text-gray-500">Crear jugadores</p>
-        <iframe class="w-full aspect-[5/2] " src="http://localhost:3000/jugadores"></iframe>
+        <iframe className="w-full aspect-[5/2] " src="http://localhost:3000/jugadores"></iframe>
         </>
     )
     

@@ -56,7 +56,7 @@ export default function Home({user, contactos, tipo_cuenta}) {
             </dl>
         </div>
         <p className="ml-8 mt-8 mb-2 text-gray-500">Crear Usuario</p>
-        <iframe class="w-full aspect-[4/3]" src="http://localhost:3000/usuario"></iframe>
+        <iframe className="w-full aspect-[4/3]" src="http://localhost:3000/usuario"></iframe>
         </>
     )
     
